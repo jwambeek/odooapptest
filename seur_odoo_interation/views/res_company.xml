@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seur_credential_configuration" model="ir.ui.view">
+        <field name="name">Seur Configuration</field>
+        <field name="model">res.company</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[last()]" position="after">
+                <page string="Seur Configuration">
+                    <group>
+                        <field name="use_seur_parcel_service"/>
+                    </group>
+                    <group attrs="{'invisible': [('use_seur_parcel_service', '!=', True)]}">
+                        <group>
+                        <field name="seur_username"
+                               attrs="{'required':[('use_seur_parcel_service','=',True)]}"/>
+                        <field name="seur_password"
+                               attrs="{'required':[('use_seur_parcel_service','=',True)]}"/>
+                        <field name="seur_tax_identifier_number"
+                               attrs="{'required':[('use_seur_parcel_service','=',True)]}"/>
+                        <field name="seur_franchise_code"
+                               attrs="{'required':[('use_seur_parcel_service','=',True)]}"/>
+                        <field name="seur_customer_integration_code"
+                               attrs="{'required':[('use_seur_parcel_service','=',True)]}"/>
+                        <field name="seur_customer_code"
+                               attrs="{'required':[('use_seur_parcel_service','=',True)]}"/>
+                        <field name="seur_account_code"
+                               attrs="{'required':[('use_seur_parcel_service','=',True)]}"/>
+                        <field name="seur_api_url"
+                               attrs="{'required':[('use_seur_parcel_service','=',True)]}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

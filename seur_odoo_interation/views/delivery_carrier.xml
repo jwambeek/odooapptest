@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seur_method_configuration" model="ir.ui.view">
+        <field name="name">Seur Configuration Information</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='destination']" position='before'>
+                <page string="Seur Configuration" name="seur_configuration"
+                      attrs="{'invisible': [('delivery_type', '!=', 'seur')]}">
+                    <group>
+                        <group>
+                        	<field name="company_id" attrs="{'required': [('delivery_type', '=', 'seur')]}"/>
+                            <field name="clave_portes" attrs="{'required': [('delivery_type', '=', 'seur')]}" />
+                            <field name="clave_pode" attrs="{'required': [('delivery_type', '=', 'seur')]}"/>
+                            <field name="clave_reembolso" attrs="{'required': [('delivery_type', '=', 'seur')]}"/>
+                            <field name="type_of_route" attrs="{'required': [('delivery_type', '=', 'seur')]}"/>
+                            <field name="type_of_number_of_route" attrs="{'required': [('delivery_type', '=', 'seur')]}"/>
+                            <field name="seur_service_code" attrs="{'required': [('delivery_type', '=', 'seur')]}"/>
+                            <field name="seur_product_code" attrs="{'required': [('delivery_type', '=', 'seur')]}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
