@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="dhl_spain_res_company_form_view" model="ir.ui.view">
+            <field name="name">DHL Spain Configuration</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[last()]" position="after">
+                    <page string="DHL Spain Configuration" name="dhl_spain_configuration">
+                        <group>
+                            <field name="use_dhl_spain_shipping_provider" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <group attrs="{'invisible':[('use_dhl_spain_shipping_provider','=',False)]}">
+                                <field name="dhl_spain_url" attrs="{'required':[('use_dhl_spain_shipping_provider','=',True)]}"/>
+                                <field name="dhl_spain_username" attrs="{'required':[('use_dhl_spain_shipping_provider','=',True)]}"/>
+                                <field name="dhl_spain_password" attrs="{'required':[('use_dhl_spain_shipping_provider','=',True)]}"/>
+                                <field name="dhl_spain_customer_number" attrs="{'required':[('use_dhl_spain_shipping_provider','=',True)]}"/>
+                                <field name="dhl_spain_token" readonly="1" />
+                                <button type="object" name="generate_dhl_spain_token" string="Generate Token"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
