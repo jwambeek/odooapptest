@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="deutschpost_shipment_form_view" model="ir.ui.view">
+            <field name="name">stock.picking</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='carrier_id']" position='after'>
+                    <field name="deutschpost_order_number" readonly="1"/>
+                    <field name="deutschpost_item_id" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

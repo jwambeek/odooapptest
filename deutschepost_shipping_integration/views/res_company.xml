@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="deutschepost_credential_configuration" model="ir.ui.view">
+        <field name="name">Deutschepost Configuration</field>
+        <field name="model">res.company</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[last()]" position="after">
+                <page string="Deutschepost Configuration">
+                    <group>
+                        <field name="use_deutschepost_shipping_provider"/>
+                    </group>
+                    <group attrs="{'invisible': [('use_deutschepost_shipping_provider', '!=', True)],'required':[('use_deutschepost_shipping_provider','=',True)]}">
+                        <field name="deutschepost_client_id"/>
+                        <field name="deutschepost_client_secret"/>
+                        <field name="deutschepost_api_url"/>
+                         <field name="deutschepost_accesstoken"/>
+                        <button type='object' class="fa fa-arrow-right oe_link" name="get_deutscepost_access_token"
+                                string="get access token"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

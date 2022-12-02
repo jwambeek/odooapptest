@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="deutschepost_deleivery_method_configuration" model="ir.ui.view">
+        <field name="name">delivery.carrier.configuration</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='destination']" position='before'>
+                <page string="Deutschepost Configuration" name="deutschepost_configuration"
+                      attrs="{'invisible': [('delivery_type', '!=', 'deutschepost')]}">
+                    <group>
+                        <group>
+                        	<field name="company_id" attrs="{'required': [('delivery_type', '=', 'deutschepost')]}"/>
+                            <field name="customer_ekp_number" attrs="{'required': [('delivery_type', '=', 'deutschepost')]}"/>
+
+                            <field name="deutschepost_product" attrs="{'required': [('delivery_type', '=', 'deutschepost')]}"/>
+                            <field name="deutschepost_servicelevel" attrs="{'required': [('delivery_type', '=', 'deutschepost')]}"/>
+                            <field name="deutschepost_pickuptimeslot" attrs="{'required': [('delivery_type', '=', 'deutschepost')]}"/>
+                            <field name="deutschepost_pickup_type" attrs="{'required': [('delivery_type', '=', 'deutschepost')]}"/>
+                            <field name="deutschepost_shipment_nature_type" attrs="{'required': [('delivery_type', '=', 'deutschepost')]}"/>
+                            <field name="deutschepost_packaging_id" attrs="{'required': [('delivery_type', '=', 'deutschepost')]}"/>
+
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
